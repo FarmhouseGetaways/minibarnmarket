@@ -1,3 +1,9 @@
 # Static site. No build step — files ship exactly as they are here.
 [build]
   publish = "."
+
+# The Instagram grid's data source. Without this the function is not built and
+# the grid drops to captions with no photography.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
