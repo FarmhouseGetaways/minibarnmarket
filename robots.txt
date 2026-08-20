@@ -1,0 +1,8 @@
+# STAGING. minibarnmarket.com still points at Wix, so this copy must stay out
+# of the index until the domain moves. On the day it moves, change this whole
+# file to "User-agent: *" / "Allow: /" and delete the staging block in
+# netlify.toml.
+User-agent: *
+Disallow: /
+
+Sitemap: https://minibarnmarket.com/sitemap.xml

@@ -1,0 +1,500 @@
+/* ==========================================================================
+   MINI BARN MARKET
+
+   The third site in the family. Farmhouse Getaways is sage and blush — the
+   house you sleep in. Farmstand.TV is near-black and one bright green — a
+   screen you switch on. This one is the barn itself: painted red, cream
+   paper, straw, and the warm dark of a shed light left on all night.
+
+   Same two typefaces as the other two, on purpose. That is the family
+   resemblance; the color is what tells them apart.
+
+   The idea the whole page has to carry: the door is never locked and nobody
+   is watching. Everything here should feel like being trusted.
+   ========================================================================== */
+
+:root {
+  /* Straight off the logo files. --barn is the red in MBM_Logo_Fill_V3,
+     --straw is the gold in the Halloween/Honey mark. Sampling them rather
+     than inventing near-misses is what keeps the site and the sign on the
+     fence looking like the same business. */
+  --barn:       #C1272D;   /* on cream — 5.4:1 */
+  --barn-dk:    #8E1F24;   /* band background */
+  --barn-lit:   #F5836A;   /* red that survives on the night band */
+
+  --straw:      #FFCD59;   /* 6.0:1 on barn-dk, 12.5:1 on night */
+  --straw-pale: #FFCD59;
+  --straw-lo:   #8A6410;   /* the gold, dark enough to read on cream */
+
+  --cream:      #FBF6E7;
+  --cream-2:    #F3E9D6;
+  --oat:        #E7DAC0;
+  --oat-line:   #DACBAE;
+
+  --night:      #17120F;
+  --night-2:    #221A15;
+
+  --ink:        #241C18;
+  --ink-soft:   #55483F;
+  --ink-faint:  #6E6055;
+  --mute:       #B5A99B;
+  --mute-2:     #9E9184;
+
+  --display: "Instrument Serif", Georgia, serif;
+  --body:    "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --gutter:  clamp(1.25rem, 5vw, 5rem);
+  --measure: 36rem;
+  --radius:  4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: clamp(1.0625rem, .35vw + 1rem, 1.13rem);
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* height:auto is load-bearing. Every <img> carries width/height attributes so
+   the layout does not jump while they load; without this the height attribute
+   wins wherever CSS sets only a width and the picture stretches. */
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--barn); outline-offset: 3px; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--barn-dk); color: var(--cream);
+  padding: .75rem 1.25rem; font-size: .78rem;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+.skip:focus { left: 0; }
+
+/* ---------- layout ---------- */
+.wrap { max-width: 78rem; margin: 0 auto; padding-inline: var(--gutter); }
+.wrap-narrow { max-width: 50rem; }
+.band { padding-block: clamp(3.25rem, 7vw, 6.5rem); }
+.band-tight { padding-block: clamp(2rem, 4vw, 3.5rem); }
+.centered { text-align: center; }
+.centered .lede { margin-inline: auto; }
+
+.paper   { background: var(--cream); color: var(--ink); }
+.paper-2 { background: var(--cream-2); color: var(--ink); }
+.oat     { background: var(--oat); color: var(--ink); }
+.red     { background: var(--barn-dk); color: var(--cream); }
+.dark    { background: var(--night); color: var(--cream); }
+
+/* ---------- type ---------- */
+.tag {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .7rem; font-weight: 700; letter-spacing: .21em;
+  text-transform: uppercase; color: var(--barn-dk);
+  margin: 0 0 1.3rem;
+}
+.tag::before { content: ""; width: 26px; height: 2px; background: currentColor; }
+.red .tag  { color: var(--straw-pale); }
+.dark .tag { color: var(--straw); }
+.centered .tag { justify-content: center; }
+
+.display {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.7rem, 7.4vw, 6rem); line-height: .98;
+  letter-spacing: -.018em; margin: 0 0 1.3rem; text-wrap: balance;
+}
+.headline {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.07;
+  letter-spacing: -.01em; margin: 0 0 1.15rem; text-wrap: balance;
+}
+.subhead {
+  font-family: var(--display); font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+  line-height: 1.22; margin: 0 0 .7rem;
+}
+em.lit { font-style: italic; color: var(--barn); }
+.red em.lit  { color: var(--straw); font-style: italic; }
+.dark em.lit { color: var(--straw); }
+
+.lede {
+  font-size: clamp(1.08rem, .7vw + .95rem, 1.3rem); line-height: 1.62;
+  max-width: var(--measure); color: var(--ink-soft); margin: 0 0 1.7rem;
+}
+.red .lede  { color: var(--cream-2); }
+.dark .lede { color: var(--mute); }
+.prose p { margin: 0 0 1.15rem; color: var(--ink-soft); max-width: var(--measure); }
+/* .prose inherits the light-background ink. On the two dark bands that lands
+   at about 1.5:1 — the paragraph above the pull quote on the home page was
+   effectively invisible until this was added. Same class of bug as the pull
+   quote on Farmhouse Getaways. */
+.dark .prose p { color: var(--mute); }
+.red  .prose p { color: var(--cream-2); }
+.red  .prose p b, .dark .prose p b { color: var(--cream); }
+.centered .prose p { margin-inline: auto; }
+.cap { font-size: .78rem; letter-spacing: .03em; color: var(--ink-faint); margin: .9rem 0 0; }
+.dark .cap { color: var(--mute-2); }
+
+/* the closing quote from Cory and Carissa */
+.pull {
+  font-family: var(--display); font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+  line-height: 1.28; margin: 0 0 1rem; color: var(--barn-dk);
+  max-width: 34rem;
+}
+.dark .pull, .red .pull { color: var(--straw); }
+.cite {
+  font-size: .74rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ink-faint); margin: 0;
+}
+.dark .cite { color: var(--mute-2); }
+.red .cite  { color: var(--straw-pale); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block; font-family: var(--body); font-size: .75rem;
+  font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  padding: 1.05rem 2rem; text-decoration: none; cursor: pointer;
+  border: 1.5px solid transparent; border-radius: 999px;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.centered .btn-row { justify-content: center; }
+
+.btn-go   { background: var(--barn-dk); color: var(--cream); }
+.btn-go:hover { background: var(--barn); }
+.btn-line { border-color: var(--oat-line); color: var(--ink); }
+.btn-line:hover { border-color: var(--ink); }
+
+.red .btn-go, .dark .btn-go { background: var(--cream); color: var(--barn-dk); }
+.red .btn-go:hover, .dark .btn-go:hover { background: #fff; }
+.red .btn-line, .dark .btn-line, .gate .btn-line { border-color: rgba(251,246,231,.45); color: var(--cream); }
+.red .btn-line:hover, .dark .btn-line:hover, .gate .btn-line:hover { border-color: var(--cream); }
+/* The hero sits on a photograph rather than on one of the band classes, so it
+   needs saying separately. Without this the second button is ink-on-dusk and
+   you cannot see it at all. */
+.gate .btn-go { background: var(--cream); color: var(--barn-dk); }
+.gate .btn-go:hover { background: #fff; }
+
+/* ---------- masthead ---------- */
+.masthead {
+  position: sticky; top: 0; z-index: 40;
+  background: var(--cream); border-bottom: 1px solid var(--oat-line);
+}
+.masthead-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding-block: .8rem; flex-wrap: wrap;
+}
+.wordmark { text-decoration: none; display: flex; align-items: center; gap: .85rem; line-height: 1; }
+.wordmark img { width: clamp(84px, 9vw, 118px); height: auto; }
+.wordmark span {
+  display: block; font-size: .6rem; font-weight: 700; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--ink-faint); max-width: 8rem;
+}
+@media (max-width: 30rem) { .wordmark span { display: none; } }
+.nav { display: flex; gap: clamp(.7rem, 2vw, 1.6rem); flex-wrap: wrap; align-items: center; }
+.nav a {
+  font-size: .71rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; text-decoration: none; color: var(--ink-soft);
+  padding-block: .3rem;
+}
+.nav a:hover, .nav a[aria-current="page"] { color: var(--barn-dk); }
+
+/* ==========================================================================
+   THE ARRIVAL
+   ========================================================================== */
+.gate {
+  position: relative; overflow: hidden;
+  min-height: clamp(540px, 88vh, 940px);
+  display: grid; align-items: end;
+  padding: clamp(3rem, 7vw, 6rem) var(--gutter) clamp(2.5rem, 6vw, 5rem);
+  background: var(--night);
+}
+.gate-bg { position: absolute; inset: 0; }
+.gate-bg img { width: 100%; height: 100%; object-fit: cover; }
+/* The painting is bright, busy and pale in exactly the places the copy sits.
+   Three passes: a wash over everything, a heavier column down the left where
+   the words are, and a bottom vignette so the buttons have something to sit
+   on. Checked at 390px, where the copy runs the full width and needs the most
+   help. */
+.gate-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(23,18,15,.66) 0%, rgba(23,18,15,.30) 30%, rgba(23,18,15,.92) 100%),
+    linear-gradient(90deg, rgba(23,18,15,.85) 0%, rgba(23,18,15,.55) 38%, rgba(23,18,15,.12) 72%),
+    rgba(23,18,15,.22);
+}
+.gate-inner { position: relative; z-index: 1; max-width: 46rem; }
+.gate-mark {
+  width: clamp(190px, 26vw, 320px); height: auto; margin: 0 0 1.6rem;
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,.75));
+}
+/* On a phone the masthead mark is already on screen a centimetre above this
+   one, and the second copy pushes the headline off the fold. */
+@media (max-width: 46rem) { .gate-mark { display: none; } }
+.gate .display { color: var(--cream); }
+.gate .lede { color: #E4DACB; }
+.gate .tag { color: var(--straw); }
+/* The barn red is a dark color and the photograph behind it is a red barn on
+   pale dirt, so the italic emphasis vanished into the picture. Gold is the
+   other half of the mark and it holds up over anything. */
+.gate em.lit { color: var(--straw); }
+
+/* the lamp that never goes off */
+.lamp {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .66rem; font-weight: 700; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--cream); margin: 0 0 1.4rem;
+}
+.lamp i {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--straw);
+  box-shadow: 0 0 0 4px rgba(231,178,58,.22), 0 0 14px rgba(231,178,58,.9);
+  animation: glow 3.6s ease-in-out infinite;
+}
+@keyframes glow { 0%,100% { opacity: 1 } 50% { opacity: .55 } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .gate-inner > * { animation: rise .85s cubic-bezier(.16,.84,.3,1) backwards; }
+  .gate .lamp    { animation-delay: .10s; }
+  .gate .display { animation-delay: .22s; }
+  .gate .lede    { animation-delay: .34s; }
+  .gate .btn-row { animation-delay: .46s; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* ---------- the open-hours strip ---------- */
+.strip {
+  background: var(--barn-dk); color: var(--straw-pale);
+  overflow: hidden; padding-block: .85rem;
+}
+.strip-track { display: flex; width: max-content; animation: slide 52s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .strip-track { animation: none; } }
+.strip-track span {
+  font-size: .72rem; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; padding-inline: 1.5rem; white-space: nowrap;
+}
+.strip-track span::after { content: "✳"; margin-left: 1.5rem; color: var(--straw); }
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---------- split ---------- */
+.split { display: grid; gap: clamp(2rem,4vw,3.5rem); align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 54rem) { .split { grid-template-columns: 1fr 1fr; } }
+.split-flip > :first-child { order: 2; }
+@media (max-width: 53.99rem) { .split-flip > :first-child { order: 0; } }
+.shot { border-radius: var(--radius); overflow: hidden; box-shadow: 0 30px 60px -40px rgba(36,28,24,.7); }
+.shot img { width: 100%; }
+
+/* ==========================================================================
+   INSTAGRAM — the reason most people come to this site
+   ========================================================================== */
+.ig { position: relative; overflow: hidden; }
+.ig::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(231,178,58,.12), transparent 70%);
+}
+.ig > * { position: relative; }
+.ig-head { display: grid; gap: 1.4rem; align-items: end; grid-template-columns: 1fr; margin-bottom: clamp(1.8rem,3.5vw,2.8rem); }
+@media (min-width: 56rem) { .ig-head { grid-template-columns: 1fr auto; } }
+.ig-handle {
+  font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--straw); text-decoration: none; display: inline-block;
+}
+.ig-handle:hover { text-decoration: underline; }
+
+/* The tiles are captioned links first and embeds second. The frame is
+   appended invisible and only takes over once Instagram has reported its
+   height back, so a blocked embed leaves the caption and the link in place
+   rather than a white rectangle. */
+.ig-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 34rem) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 62rem) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.ig-tile {
+  position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 19rem; padding: 1.5rem; border-radius: var(--radius); overflow: hidden;
+  background: var(--night-2); border: 1px solid rgba(251,246,231,.16);
+  text-decoration: none; color: var(--cream);
+  transition: border-color .2s ease, background .2s ease;
+}
+.ig-tile:hover { border-color: var(--straw); background: #2A211A; }
+.ig-tile::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 90% 70% at 20% 0%, rgba(255,205,89,.10), transparent 70%);
+}
+.ig-cap {
+  position: relative; z-index: 2;
+  font-family: var(--display); font-size: 1.4rem; line-height: 1.2;
+  color: var(--cream); margin-bottom: .9rem;
+}
+.ig-open {
+  position: relative; z-index: 2;
+  font-size: .64rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--straw);
+}
+.ig-open::after { content: " \2192"; }
+
+/* ---- tier 3: the live feed ----
+   Real thumbnails from the Graph API. The caption sits over the bottom of the
+   picture on a gradient rather than under it, so the tiles read as a feed
+   instead of as a list of links with pictures attached. */
+.ig-grid.is-feed .ig-tile { min-height: 0; padding: 0; aspect-ratio: 4/5; }
+.ig-tile.is-live-feed { padding: 0; }
+/* The picture is a positioned element, so without an explicit stacking order
+   it paints over the ::before gradient — which is a pseudo-element and
+   therefore first in paint order. The captions were sitting straight on the
+   photograph with nothing behind them. */
+.ig-tile img { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%;
+  object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.3,1); }
+.ig-tile:hover img { transform: scale(1.06); }
+.ig-tile.is-live-feed::before {
+  display: block; z-index: 1; inset: auto 0 0 0; height: 72%;
+  background: linear-gradient(180deg, rgba(9,6,4,0) 0%, rgba(9,6,4,.55) 45%, rgba(9,6,4,.95) 100%);
+}
+.ig-tile.is-live-feed .ig-cap {
+  font-size: 1.08rem; line-height: 1.28; margin: 0 1.2rem .55rem;
+  text-shadow: 0 1px 12px rgba(0,0,0,.85);
+}
+.ig-tile.is-live-feed .ig-open { margin: 0 1.2rem 1.2rem; }
+.ig-play {
+  position: absolute; z-index: 2; top: .9rem; right: .9rem; width: 30px; height: 30px;
+  border-radius: 50%; background: rgba(9,6,4,.66); backdrop-filter: blur(2px);
+}
+.ig-play::after {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0;
+  margin-left: 12px;
+  border-left: 10px solid var(--cream);
+  border-top: 6px solid transparent; border-bottom: 6px solid transparent;
+}
+
+/* Parked out of the way until MEASURE arrives. */
+.ig-tile iframe {
+  position: absolute; left: -9999px; top: 0;
+  width: 100%; height: 26rem; border: 0; display: block; background: #fff;
+}
+.ig-tile.is-live {
+  padding: 0; min-height: 0; border-color: transparent; background: #fff;
+}
+.ig-tile.is-live::before { display: none; }
+.ig-tile.is-live .ig-cap, .ig-tile.is-live .ig-open { display: none; }
+.ig-tile.is-live iframe { position: static; }
+
+.ig-mark { width: 26px; height: 26px; vertical-align: -6px; margin-right: .55rem; }
+.ig-mark path, .ig-mark rect, .ig-mark circle { fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+/* ---------- the three-up ---------- */
+.trio { display: grid; gap: 1px; grid-template-columns: 1fr; background: var(--oat-line); border: 1px solid var(--oat-line); border-radius: var(--radius); overflow: hidden; }
+@media (min-width: 52rem) { .trio { grid-template-columns: repeat(3, 1fr); } }
+.cell { background: var(--cream); padding: clamp(1.6rem, 3vw, 2.4rem); display: flex; flex-direction: column; }
+.paper-2 .cell { background: var(--cream-2); }
+.oat .cell { background: var(--oat); }
+.cell h3 {
+  font-family: var(--body); font-size: .69rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--barn-dk); margin: 0 0 .9rem;
+}
+.cell .subhead { margin-bottom: .5rem; }
+.cell p { margin: 0; font-size: .95rem; color: var(--ink-soft); }
+.cell .btn-row { margin-top: auto; padding-top: 1.5rem; }
+
+/* ---------- numbered steps ---------- */
+.steps { counter-reset: s; list-style: none; padding: 0; margin: 1.6rem 0 0; }
+.steps li {
+  counter-increment: s; position: relative; padding-left: 3.2rem;
+  margin-bottom: 1.3rem; color: var(--ink-soft); font-size: .98rem;
+}
+.steps li b { color: var(--ink); display: block; }
+.steps li::before {
+  content: counter(s, decimal-leading-zero);
+  position: absolute; left: 0; top: -.2rem;
+  font-family: var(--display); font-size: 1.9rem; line-height: 1;
+  color: var(--barn); opacity: .6;
+}
+.steps li em { font-style: normal; font-weight: 700; color: var(--barn); }
+/* The steps are on the night band on the gift card page, where the default
+   ink colors run about 1.1:1. Caught by the contrast pass, not by eye — at
+   that ratio the numbers look like nothing is there at all. */
+.dark .steps li        { color: var(--mute); }
+.dark .steps li b      { color: var(--cream); }
+.dark .steps li em     { color: var(--straw); }
+.dark .steps li::before { color: var(--straw); opacity: .75; }
+
+/* ---------- the facts list ---------- */
+.facts { list-style: none; padding: 0; margin: 1.6rem 0 0; }
+.facts li {
+  display: flex; gap: 1rem; padding: .85rem 0;
+  border-bottom: 1px solid var(--oat-line); font-size: .96rem;
+}
+.dark .facts li { border-color: rgba(251,245,233,.16); }
+.facts .k {
+  flex: 0 0 9.5rem; font-size: .68rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-faint); padding-top: .28rem;
+}
+.dark .facts .k { color: var(--mute-2); }
+.facts .v { color: var(--ink-soft); }
+.dark .facts .v { color: var(--mute); }
+
+/* ---------- forms ---------- */
+.hp { position: absolute; left: -9999px; }
+.form-card {
+  background: #fff; border: 1px solid var(--oat-line);
+  border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.4rem);
+}
+.field { display: grid; gap: .35rem; margin-bottom: 1.05rem; }
+.field label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+.field input, .field textarea {
+  font: inherit; font-size: 1rem; padding: .85rem 1rem; width: 100%;
+  border: 1px solid var(--oat-line); border-radius: var(--radius);
+  background: #fff; color: var(--ink);
+}
+.field textarea { min-height: 8.5rem; resize: vertical; }
+.field input:focus, .field textarea:focus {
+  outline: none; border-color: var(--barn); box-shadow: 0 0 0 3px rgba(184,64,42,.16);
+}
+.field-pair { display: grid; gap: 0 1rem; grid-template-columns: 1fr; }
+@media (min-width: 34rem) { .field-pair { grid-template-columns: 1fr 1fr; } }
+.fine { font-size: .78rem; color: var(--ink-faint); margin: 1rem 0 0; }
+
+/* ---------- footer ---------- */
+.foot {
+  background: var(--night); color: var(--mute);
+  padding-block: clamp(2.5rem, 5vw, 4rem); font-size: .93rem;
+}
+.foot a { color: var(--cream); text-decoration: none; }
+.foot a:hover { color: var(--straw); }
+.foot h2 {
+  font-family: var(--body); font-size: .67rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--mute-2); margin: 0 0 .9rem;
+}
+.foot ul { list-style: none; padding: 0; margin: 0; }
+.foot li { margin-bottom: .45rem; }
+.foot-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 46rem) { .foot-grid { grid-template-columns: 2fr 1fr 1fr; gap: 3rem; } }
+.foot-mark { width: clamp(150px, 17vw, 200px); height: auto; margin: 0 0 1.1rem; }
+.foot-fine {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin-top: 2.6rem; padding-top: 1.4rem;
+  border-top: 1px solid rgba(251,245,233,.16); font-size: .78rem; color: var(--mute-2);
+}
+.sisters { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+/* ---------- scroll reveal ----------
+   Content is visible by default. It is only hidden after a tiny script in the
+   <head> has added .js to <html>, which proves JavaScript is running and can
+   put it back. The other way round, one script failure blanks the whole page. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .rv { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,.84,.3,1); }
+  .js .rv.in { opacity: 1; transform: none; }
+}
+
+/* ---------- map teaser ---------- */
+.mapshot { border-radius: var(--radius); overflow: hidden; box-shadow: 0 40px 80px -50px rgba(0,0,0,.85); }
+.mapshot img { width: 100%; }

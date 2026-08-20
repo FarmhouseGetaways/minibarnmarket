@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Mini Barn Market</title>
+<meta name="description" content="That page could not be found.">
+<link rel="canonical" href="https://minibarnmarket.com/404">
+<meta property="og:site_name" content="Mini Barn Market">
+<meta property="og:title" content="Page not found — Mini Barn Market">
+<meta property="og:description" content="That page could not be found.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://minibarnmarket.com/404">
+<meta property="og:image" content="https://minibarnmarket.com/images/mbm-painting.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#8E1F24">
+<link rel="stylesheet" href="/css/site.css?v=3054fc63">
+<script>if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.className+=' js';</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="wordmark" href="/"><img src="/images/logo-red.png" width="1000" height="669" alt="Mini Barn Market"><span>Ramona, California</span></a>
+    <nav class="nav" aria-label="Main"><a href="/#stand">The Stand</a><a href="/#instagram">Instagram</a><a href="/giftcards">Gift Cards</a><a href="/contact">Visit</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="band paper" style="min-height:60vh;display:grid;align-items:center">
+  <div class="wrap wrap-narrow centered">
+    <p class="tag">Nothing here</p>
+    <h1 class="display">That shelf is empty.</h1>
+    <p class="lede">The page you were after has moved or never existed. The barn
+      itself is still open, which is the main thing.</p>
+    <div class="btn-row">
+      <a class="btn btn-go" href="/">Back to the stand</a>
+      <a class="btn btn-line" href="/contact">Find us</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="foot-mark" src="/images/logo-tan.png" width="1000" height="669" alt="Mini Barn Market">
+        <p>An air-conditioned farm stand at the top of Whirlwind Lane, open every
+           hour of every day, run on the honor system.</p>
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=33.0217514,-116.9316667" target="_blank" rel="noopener">17111 Whirlwind Lane, Ramona, CA 92065</a><br>
+           <a href="sms:+17602326999">Text 760-232-6999</a><br>
+           <a href="mailto:minibarnmarket@gmail.com">minibarnmarket@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>Here</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/giftcards">Gift Cards</a></li>
+          <li><a href="/contact">Visit &amp; Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/minibarnmarket/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/minibarnmarketramona" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/channel/UCrv4uGI6qNeQpDjoDmMhRxQ" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-fine">
+      <span>&copy; 2026 Mini Barn Market &middot; Ramona, California</span>
+      <span class="sisters">
+        <a href="https://farmhousegetaways.com/" target="_blank" rel="noopener">Farmhouse Getaways</a>
+        <a href="https://farmstandtv.com/" target="_blank" rel="noopener">Farmstand.TV</a>
+        <a href="https://farmstandtv.com/maps" target="_blank" rel="noopener">The Ramona Farmstand Map</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script>
+/* Reveal each section as it arrives. If anything in here throws, the catch
+   strips the .js class and everything becomes visible again — a decorative
+   animation must never cost somebody the content. */
+(function () {
+  try {
+    var els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window)) throw 0;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    for (var i = 0; i < els.length; i++) {
+      if (els[i].getBoundingClientRect().top < window.innerHeight) els[i].classList.add('in');
+      else io.observe(els[i]);
+    }
+  } catch (err) {
+    document.documentElement.className =
+      document.documentElement.className.replace(/\bjs\b/, '');
+  }
+})();
+</script>
+</body>
+</html>
