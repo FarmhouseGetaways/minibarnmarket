@@ -55,15 +55,34 @@ const PINNED = [
 const UA =
   "Mozilla/5.0 (compatible; MiniBarnMarket/1.0; +https://minibarnmarket.com)";
 
-/** Pull the post's own still out of an embed page. */
+/**
+ * Pull the post's own still out of an embed page.
+ *
+ * Two things here are load-bearing, and both were got wrong first time:
+ *
+ *   The page carries these URLs in two different escapings — HTML attributes
+ *   use &amp;, the embedded JSON blobs use \/ and & — so both have to be
+ *   normalised before matching or the URL comes out mangled.
+ *
+ *   There is no length limit on the match. These URLs run to about 600
+ *   characters and the signature, oh= and oe=, sits at the very end. A capped
+ *   pattern returns something that looks like a URL, passes every eyeball
+ *   test, and 403s when a browser asks for it.
+ */
 function stillFrom(html) {
-  const found = html.match(/https:\/\/[a-z0-9.\-]*scontent[^"'\\ ]{0,400}/gi) || [];
-  for (let url of found) {
-    url = url.replace(/&amp;/g, "&").replace(/\\+/g, "");
+  const text = html
+    .replace(/\\u0026/g, "&")
+    .replace(/\\\//g, "/")
+    .replace(/&amp;/g, "&");
+  const found = text.match(/https:\/\/[a-z0-9.\-]*scontent[^\s"'<>\\)]+/gi) || [];
+  for (const url of found) {
     // t51.2885-19 is the profile avatar, and an s96x96-style crop is a
     // thumbnail of it. Neither is the post.
     if (/t51\.2885-19/.test(url)) continue;
     if (/s\d{2,3}x\d{2,3}/.test(url)) continue;
+    // Unsigned means it will 403 the moment a browser asks. Skip it rather
+    // than hand the page a picture that cannot load.
+    if (!/[?&]oh=/.test(url) || !/[?&]oe=/.test(url)) continue;
     return url;
   }
   return null;
