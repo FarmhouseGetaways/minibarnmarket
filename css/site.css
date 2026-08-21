@@ -239,6 +239,20 @@ em.lit { font-style: italic; color: var(--barn); }
 /* On a phone the masthead mark is already on screen a centimetre above this
    one, and the second copy pushes the headline off the fold. */
 @media (max-width: 46rem) { .gate-mark { display: none; } }
+
+/* On a phone, `88vh` with `align-items: end` put the copy 45% of the way down
+   an 844px screen — "Open right now" started at y=383 with 255px of empty
+   painting above it, and the buttons ran to within 14px of the bottom. On a
+   wide screen that reads as a designed hero; on a phone it reads as a picture
+   with the words fallen to the bottom of it.
+   Shorter block, and the copy centred in what remains. Measured at 390x844. */
+@media (max-width: 46rem) {
+  .gate {
+    min-height: clamp(470px, 70vh, 640px);
+    align-items: center;
+    padding-block: clamp(2rem, 8vw, 3rem);
+  }
+}
 .gate .display { color: var(--cream); }
 .gate .lede { color: #E4DACB; }
 .gate .tag { color: var(--straw); }
