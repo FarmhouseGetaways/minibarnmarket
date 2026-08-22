@@ -149,6 +149,40 @@
   </div>
 </section>
 
+<!-- Email signup. name="newsletter" is what routes this to EmailOctopus —
+     submission-created.mjs looks for exactly that name. Do not rename it.
+     Uses only classes the page already had, so it needs no new CSS. -->
+<section class="band paper rv" id="signup">
+  <div class="wrap wrap-narrow">
+    <div class="form-card">
+      <h2 class="headline">Know what is on the shelf.</h2>
+      <p class="lede">What is ripe, what has just come in, and when the barn has
+        something worth the drive. One or two emails a month, unsubscribe in a click.</p>
+
+      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="company" action="/thanks">
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="hidden" name="source" value="mbm-home">
+        <p class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="field-pair">
+          <div class="field">
+            <label for="su-mbm-name">First name</label>
+            <input id="su-mbm-name" name="first-name" type="text" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="su-mbm-email">Email</label>
+            <input id="su-mbm-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <button class="btn btn-go" type="submit">Keep me posted</button>
+      </form>
+
+      <p class="fine">We never sell your address. Unsubscribe in one click.</p>
+    </div>
+  </div>
+</section>
+
 <section class="band oat rv">
   <div class="wrap wrap-narrow centered">
     <p class="tag">Stay a while</p>
