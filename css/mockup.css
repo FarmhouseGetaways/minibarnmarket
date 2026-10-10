@@ -82,7 +82,7 @@ section { scroll-margin-top: 1rem; }
 
 .topbar { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; padding: 1rem var(--gutter); max-width: 80rem; margin: 0 auto; position: relative; z-index: 3; }
 .brand { display: block; flex: none; }
-.brand img { width: clamp(92px, 10vw, 128px); height: auto; filter: drop-shadow(0 4px 0 rgba(0,0,0,.35)); }
+.brand img { width: clamp(132px, 15vw, 210px); height: auto; filter: drop-shadow(0 4px 0 rgba(0,0,0,.35)); }
 .nav { display: flex; flex-wrap: wrap; gap: .45rem; margin-left: auto; }
 .nav a { display: inline-flex; align-items: center; min-height: 2.4rem; padding: .35rem .95rem; border-radius: 999px; border: 2px solid rgba(251,246,231,.28); font-family: var(--slab); font-weight: 700; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--cream); }
 .nav a[aria-current="page"] { background: var(--barn); border-color: var(--barn); }
