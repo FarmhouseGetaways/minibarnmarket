@@ -98,13 +98,14 @@
 
     <figure class="poster">
       <!-- SIGNATURE: the poster. Mini Barn Market as it really is (red
-           gambrel barn, white trim, cream sign, white X-braced doors), drawn
+           gambrel barn, white trim, the white neon sign in the gable, white X-braced doors), drawn
            at dusk with the doors open and the light on. Lit at rest; nothing
            here depends on an animation running. -->
       <svg class="scene" viewBox="0 0 800 1000" role="img" aria-labelledby="poster-t poster-d">
         <title id="poster-t">Illustration of Mini Barn Market at dusk</title>
-        <desc id="poster-d">A poster-style illustration: the small red Mini Barn Market with its gambrel roof and cream sign, both white doors swung open and warm light pouring out across the ground. Oaks and the Ramona hills behind, stars overhead, crates of produce by the door, and a painted sign in front that reads Open, with a banner beneath it that reads 24 hours, 7 days.</desc>
+        <desc id="poster-d">A poster-style illustration: the small red Mini Barn Market with its gambrel roof and the white neon Mini Barn Market sign in the gable, both white doors swung open and warm light pouring out across the ground. Oaks and the Ramona hills behind, stars overhead, crates of produce by the door, and a painted sign in front that reads Open, with a banner beneath it that reads 24 hours, 7 days.</desc>
         <defs>
+          <filter id="neon-blur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.6"/></filter>
           <linearGradient id="g-sky" x1="0" y1="36" x2="0" y2="720" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#141530"/>
             <stop offset=".36" stop-color="#2b2546"/>
@@ -207,15 +208,27 @@
           <path d="M244 562 L281 474 L400 422 L519 474 L556 562" fill="none" stroke="#f7f1e4" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
           <path d="M254 560 H546" stroke="#f7f1e4" stroke-width="5"/>
           <path d="M254 560 V760 M546 560 V760" stroke="#f7f1e4" stroke-width="6"/>
-          <!-- Hay-loft X window, from the logo -->
-          <rect x="382" y="440" width="36" height="26" fill="#c1272d" stroke="#f7f1e4" stroke-width="4"/>
-          <path d="M384 442 L416 464 M416 442 L384 464" stroke="#f7f1e4" stroke-width="3"/>
-
-          <!-- The cream sign -->
-          <rect x="312" y="484" width="176" height="52" rx="3" fill="#fbf3d4" stroke="#4a2c1d" stroke-width="2.5"/>
-          <rect x="318" y="490" width="164" height="40" rx="2" fill="none" stroke="#c1272d" stroke-width="2"/>
-          <text x="400" y="513" text-anchor="middle" textLength="140" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="800" font-size="20" fill="#c1272d">MINI BARN</text>
-          <text x="400" y="527" text-anchor="middle" textLength="64" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="700" font-size="10" letter-spacing="2" fill="#c1272d">MARKET</text>
+          <!-- The white neon sign, high in the gable, as it really hangs (Cory's photo, 9 Oct 2026):
+               the logo traced in white neon on clear acrylic, X loft window and all -->
+          <g transform="translate(400 446)">
+            <path d="M-50 32 L-33 0 L0 -15 L33 0 L50 32 L62 32 L62 60 L46 64 L46 84 L0 96 L-46 84 L-46 64 L-62 60 L-62 32 Z" fill="#ffffff" fill-opacity=".14" stroke="#ffffff" stroke-opacity=".35" stroke-width="1"/>
+            <g class="neon-glow" filter="url(#neon-blur)" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" opacity=".8">
+              <path d="M-46 30 L-31 5 L0 -9 L31 5 L46 30"/>
+              <rect x="-10" y="3" width="20" height="14" rx="1"/><path d="M-10 3 L10 17 M10 3 L-10 17"/>
+              <rect x="-58" y="30" width="116" height="26" rx="2"/>
+              <path d="M-40 56 V66 M40 56 V66"/>
+              <path d="M-42 66 H42 V80 L0 90 L-42 80 Z"/>
+            </g>
+            <g filter="url(#neon-blur)" fill="#ffffff" opacity=".8"><text x="0" y="50" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="19">MINI BARN</text><text x="0" y="78" text-anchor="middle" textLength="62" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="10" letter-spacing="1.5">&#8226; MARKET &#8226;</text></g>
+            <g fill="none" stroke="#fffdf2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M-46 30 L-31 5 L0 -9 L31 5 L46 30"/>
+              <rect x="-10" y="3" width="20" height="14" rx="1"/><path d="M-10 3 L10 17 M10 3 L-10 17"/>
+              <rect x="-58" y="30" width="116" height="26" rx="2"/>
+              <path d="M-40 56 V66 M40 56 V66"/>
+              <path d="M-42 66 H42 V80 L0 90 L-42 80 Z"/>
+            </g>
+            <g fill="#fffdf2"><text x="0" y="50" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="19">MINI BARN</text><text x="0" y="78" text-anchor="middle" textLength="62" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="10" letter-spacing="1.5">&#8226; MARKET &#8226;</text></g>
+          </g>
 
           <!-- The doorway, lit, with the shelves inside -->
           <rect x="330" y="572" width="140" height="188" fill="#3a1d12"/>
