@@ -208,26 +208,11 @@
           <path d="M244 562 L281 474 L400 422 L519 474 L556 562" fill="none" stroke="#f7f1e4" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
           <path d="M254 560 H546" stroke="#f7f1e4" stroke-width="5"/>
           <path d="M254 560 V760 M546 560 V760" stroke="#f7f1e4" stroke-width="6"/>
-          <!-- The white neon sign, high in the gable, as it really hangs (Cory's photo, 9 Oct 2026):
-               the logo traced in white neon on clear acrylic, X loft window and all -->
-          <g transform="translate(400 446)">
-            <path d="M-50 32 L-33 0 L0 -15 L33 0 L50 32 L62 32 L62 60 L46 64 L46 84 L0 96 L-46 84 L-46 64 L-62 60 L-62 32 Z" fill="#ffffff" fill-opacity=".14" stroke="#ffffff" stroke-opacity=".35" stroke-width="1"/>
-            <g class="neon-glow" filter="url(#neon-blur)" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" opacity=".8">
-              <path d="M-46 30 L-31 5 L0 -9 L31 5 L46 30"/>
-              <rect x="-10" y="3" width="20" height="14" rx="1"/><path d="M-10 3 L10 17 M10 3 L-10 17"/>
-              <rect x="-58" y="30" width="116" height="26" rx="2"/>
-              <path d="M-40 56 V66 M40 56 V66"/>
-              <path d="M-42 66 H42 V80 L0 90 L-42 80 Z"/>
-            </g>
-            <g filter="url(#neon-blur)" fill="#ffffff" opacity=".8"><text x="0" y="50" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="19">MINI BARN</text><text x="0" y="78" text-anchor="middle" textLength="62" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="10" letter-spacing="1.5">&#8226; MARKET &#8226;</text></g>
-            <g fill="none" stroke="#fffdf2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M-46 30 L-31 5 L0 -9 L31 5 L46 30"/>
-              <rect x="-10" y="3" width="20" height="14" rx="1"/><path d="M-10 3 L10 17 M10 3 L-10 17"/>
-              <rect x="-58" y="30" width="116" height="26" rx="2"/>
-              <path d="M-40 56 V66 M40 56 V66"/>
-              <path d="M-42 66 H42 V80 L0 90 L-42 80 Z"/>
-            </g>
-            <g fill="#fffdf2"><text x="0" y="50" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="19">MINI BARN</text><text x="0" y="78" text-anchor="middle" textLength="62" lengthAdjust="spacingAndGlyphs" font-family="'Roboto Slab', Rockwell, Georgia, serif" font-weight="500" font-size="10" letter-spacing="1.5">&#8226; MARKET &#8226;</text></g>
+          <!-- The white neon sign, high in the gable (Cory's photo, 9 Oct 2026). It IS the logo: images/mbm-neon.png is
+               made from images/logo-fill.png by tools/make_neon.py, every stroke of the logo as one white tube. -->
+          <g transform="translate(325 437)">
+            <image href="/images/mbm-neon.png" x="0" y="0" width="150" height="101" filter="url(#neon-blur)"/><image href="/images/mbm-neon.png" x="0" y="0" width="150" height="101" filter="url(#neon-blur)" opacity=".7"/>
+            <image href="/images/mbm-neon.png" x="0" y="0" width="150" height="101"/>
           </g>
 
           <!-- The doorway, lit, with the shelves inside -->
